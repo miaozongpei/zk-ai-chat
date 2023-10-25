@@ -89,6 +89,10 @@ class XhEmbeddings(Embeddings):
             Embeddings for the text.
         """
         embedding_res = self.get_Embedding(text)
-        embedding = embedding_res["payload"]["text"]["vector"]
-        return json.loads(embedding)
+        if embedding_res["header"]["code"] == 0:
+            embedding = embedding_res["payload"]["text"]["vector"]
+            return json.loads(embedding)
+        else:
+            print(embedding_res)
+            return ""
 

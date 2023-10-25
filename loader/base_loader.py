@@ -170,8 +170,8 @@ def load_file(file_url):
         return load_email(file_url)
     if file_url.endswith(".enex"):
         return load_pypandoc(file_url)
-    #if file_url.endswith(".jpg") or file_url.endswith(".png"):
-     #   return load_image(file_url)
+    if file_url.endswith(".jpg") or file_url.endswith(".png"):
+        return load_image(file_url)
 
 
 
@@ -197,18 +197,19 @@ def load_url(url):
 
 #data=load_image("/Users/miao/mydocs/个人/公司/111.png")
 #data=load_image("/Users/miao/mydocs/个人/z.jpg")
+#data=load_image("/Users/miao/mydocs/个人/公司/6年级数学知识点/2.jpg")
 
 #data=load_image("/Users/miao/mydocs/个人/公司/WechatIMG196.jpg")
 
 #data=load_ppt("/Users/miao/mydocs/个人/公司/创影数字人产品介绍0726.pptx")
-data=load_pdf("/Users/miao/mydocs/个人/公司/新产品策划书-获客推广.pdf")
+#data=load_pdf("/Users/miao/mydocs/个人/公司/新产品策划书-获客推广.pdf")
 #data=load_txt("/Users/miao/mydocs/个人/公司/demo.txt")
 #data=load_url("https://blog.csdn.net/WinkingJay/article/details/80497460")
 
 #loader = BiliBiliLoader(["https://www.bilibili.com/video/BV1xt411o7Xu/"])
 #print(loader.load())
 #data=load_bilibi("https://www.bilibili.com/video/BV1ek4y1c718/?spm_id_from=333.880.my_history.page.click&vd_source=0cfb224441a3101611c842d6355a0ff3")
-print(data)
+#print(data)
 
 
 
