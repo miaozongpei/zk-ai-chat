@@ -33,6 +33,7 @@ def get_vector_chain(collection_name) -> Any:
     </hs>
     ------
     {question}
+    ，如果上下文中没有，请不要随便回答
     If you don't know, please answer 'I don't know'
     Answer in Chinese:
     """
