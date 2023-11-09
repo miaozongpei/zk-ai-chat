@@ -20,7 +20,7 @@ embeddings =XhEmbeddings(appid=config.embedding_xh_appid,
                        )
 llm = Spark(version=3)
 def get_vector_chain(collection_name) -> Any:
-    llm
+    Spark(version=3)
     template = """
     Use the following context (delimited by <ctx></ctx>) and the chat history (delimited by <hs></hs>) to answer the question:
     ------
@@ -33,7 +33,7 @@ def get_vector_chain(collection_name) -> Any:
     </hs>
     ------
     {question}？
-    Unable to answer from context (delimited by <ctx></ctx>) and the chat history (delimited by <hs></hs>), please answer '抱歉，我无法从已知的知识库中回答您的问题'
+    
     Answer in Chinese:
     """
 
@@ -51,7 +51,7 @@ def get_vector_chain(collection_name) -> Any:
     )
     chain = RetrievalQA.from_chain_type(
         llm,
-        retriever=vector_db.as_retriever(search_type="similarity", search_kwargs={"k": 2}),
+        retriever=vector_db.as_retriever(search_type="similarity", search_kwargs={"k": 3}),
         chain_type="stuff",
         chain_type_kwargs={
             "prompt": prompt,
