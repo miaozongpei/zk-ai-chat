@@ -18,7 +18,7 @@ embeddings =XhEmbeddings(appid=config.embedding_xh_appid,
                        api_secret=config.embedding_xh_api_secret,
                        embedding_url=config.embedding_xh_embedding_url
                        )
-llm = Spark(version=2)
+llm = Spark(version=3)
 def get_vector_chain(collection_name) -> Any:
     llm
     template = """
@@ -32,9 +32,8 @@ def get_vector_chain(collection_name) -> Any:
     {history}
     </hs>
     ------
-    {question}
-    ，如果上下文中没有，请不要随便回答
-    If you don't know, please answer 'I don't know'
+    {question}？
+    Unable to answer from context (delimited by <ctx></ctx>) and the chat history (delimited by <hs></hs>), please answer '抱歉，我无法从已知的知识库中回答您的问题'
     Answer in Chinese:
     """
 

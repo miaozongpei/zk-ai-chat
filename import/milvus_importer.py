@@ -36,6 +36,6 @@ def import_file_path(file_path, collection_name):
 #import_file_path("/Users/miao/mydocs/个人/公司","my_doc")
 #import_file_url("/Users/miao/mydocs/个人/公司/公司资料/创影数字人产品介绍2023V1（中科数智人）.pptx","my_doc1")
 #import_file_url("/Users/miao/mydocs/个人/公司/6年级数学知识点/2.jpg","suxue6")
-import_file_path("/Users/miao/mydocs/个人/公司/育儿", "yuer3")
+#import_file_path("/Users/miao/mydocs/个人/公司/育儿", "yuer3")
 
-#import_file_path("/Users/miao/mydocs/个人/公司/政府服务","my_doc1")
+import_file_path("/Users/miao/mydocs/个人/公司/政府服务","my_doc1")

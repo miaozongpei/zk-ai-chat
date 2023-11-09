@@ -113,6 +113,8 @@ class Spark(LLM):
         gpt_url = "ws://spark-api.xf-yun.com/v1.1/chat"  # v1.5环境的地址
         if self.version == 2:
             gpt_url = "ws://spark-api.xf-yun.com/v2.1/chat"
+        if self.version == 3:
+            gpt_url = "ws://spark-api.xf-yun.com/v3.1/chat"
 
         host = urlparse(gpt_url).netloc  # host目标机器解析
         path = urlparse(gpt_url).path  # 路径目标解析
@@ -149,6 +151,8 @@ class Spark(LLM):
         domain = "general"  # v1.5版本
         if self.version == 2:
             domain = "generalv2"
+        if self.version == 3:
+            domain = "generalv3"
         setattr(ws, "domain", domain)
         setattr(ws, "temperature", self.temperature)
         setattr(ws, "max_tokens", self.max_tokens)
