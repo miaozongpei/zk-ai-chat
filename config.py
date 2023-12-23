@@ -9,7 +9,7 @@ Milvus_host = '8.130.178.88'
 Milvus_port = '19530'
 
 text_splitter_chunk_size = 512
-text_splitter_chunk_overlap = 32
+text_splitter_chunk_overlap = 64
 
 
 embedding_xh_appid = '25db5e9b'
