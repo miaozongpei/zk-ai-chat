@@ -34,7 +34,7 @@ def get_vector_chain(collection_name) -> Any:
     ------
     {question}？
     
-    Answer in Chinese，Within 100 words:
+    Answer in Chinese，Within 200 words:
     """
 
     #Answer in the language in which the question was asked:
