@@ -22,7 +22,7 @@ llm = Spark(version=3)
 def get_vector_chain(collection_name) -> Any:
     Spark(version=3)
     template = """
-    Use the following context (delimited by <ctx></ctx>) and the chat history (delimited by <hs></hs>) to answer the question:
+    Use the following context (delimited by <ctx></ctx>) and the chat history (delimited by <hs></hs>) to answer the question:{question}
     ------
     <ctx>
     {context}
@@ -32,7 +32,7 @@ def get_vector_chain(collection_name) -> Any:
     {history}
     </hs>
     ------
-    {question}？
+   
     
     Answer in Chinese，The answer cannot exceed 200:
     """

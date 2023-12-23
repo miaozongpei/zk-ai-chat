@@ -23,7 +23,7 @@ async def ask(docs: str, question: str):
 @app.get("/ask/{docs}/{question}")
 async def ask(docs: str, question: str):
     replay = answer_bydoc(docs, question)
-    if replay.find("don't") != -1 or replay.find("对不起") != -1 or replay.find("无法回答") != -1 or replay.find("不知道") != -1 or replay.find("不清楚") != -1:
+    if replay.find("don't") != -1 or replay.find("对不起") != -1 or replay.find("无法回答") != -1 or replay.find("不知道") != -1 or replay.find("不清楚") != -1 or replay.find("不太明白") != -1:
         replay = answer_bybase(question)
     return {"message": replay}
 
