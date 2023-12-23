@@ -18,6 +18,6 @@ embedding_xh_api_secret = 'NzFmMGZmY2E1ZjY1MTE4Nzk0MDk2MzBi'
 embedding_xh_embedding_url = 'https://knowledge-retrieval.cn-huabei-1.xf-yun.com/v1/aiui/embedding/query'
 
 
-llm_xh_appid = "25db5e9b"
-llm_xh_api_key = "0664dcee83dd7d53e9cb60e9a8793902"
-llm_xh_api_secret = "NzFmMGZmY2E1ZjY1MTE4Nzk0MDk2MzBi"
+llm_xh_appid = "73cdf05e"
+llm_xh_api_key = "26e693a81275507940f92def782cb8eb"
+llm_xh_api_secret = "MTE3ZDY0M2YxOTNjMjdkZTIyODgwZWNj"
