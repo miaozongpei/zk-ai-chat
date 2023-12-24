@@ -52,5 +52,5 @@ def excel2json(excel_file, json_file_name,sheet_no):
 
 #main
 if '__main__' == __name__:
-     excel2json(u'/Users/miao/mydocs/个人/公司/邮乐/邮乐AI数字人知识库收集 (第2批次).xlsx', '/Users/miao/mydocs/个人/公司/邮乐1/1——1.doc',1)
+     excel2json(u'/Users/miao/mydocs/个人/公司/邮乐/微调问题.xlsx', '/Users/miao/mydocs/个人/公司/邮乐1/微调问题.doc',0)
      #excel2json(u'/Users/miao/mydocs/个人/公司/邮乐/资料库补充资料.xlsx', '/Users/miao/mydocs/个人/公司/邮乐1/3.doc',3)

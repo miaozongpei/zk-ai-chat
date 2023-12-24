@@ -23,6 +23,7 @@ def get_vector_chain(collection_name) -> Any:
     Spark(version=3)
     template = """
     Use the following context (delimited by <ctx></ctx>) and the chat history (delimited by <hs></hs>) to answer the question:{question}
+    ，If you don't know, please answer:'抱歉，从我目前的知识体系中，并没有找准确答案。'
     ------
     <ctx>
     {context}
@@ -32,8 +33,7 @@ def get_vector_chain(collection_name) -> Any:
     {history}
     </hs>
     ------
-    如果上下文中没有，请不要随便回答
-    If you don't know, please answer '抱歉，从目前我的知识体系中并没有找到准确的答案'
+    
     Answer in Chinese，The answer cannot exceed 200:
     """
 

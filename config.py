@@ -8,7 +8,7 @@ PINECONE_API_ENV = 'us-west4-gcp-free'
 Milvus_host = '8.130.178.88'
 Milvus_port = '19530'
 
-text_splitter_chunk_size = 512
+text_splitter_chunk_size = 768
 text_splitter_chunk_overlap = 64
 
 
