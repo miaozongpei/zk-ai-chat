@@ -1,6 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from answer.chatgpt_answer import answer_bydoc,answer_bybase
+import random
 
 app = FastAPI()
 
@@ -14,8 +15,8 @@ async def ask(docs: str, question: str):
     replay = answer_bydoc(docs, question)
     if replay.find("don't") != -1 or replay.find("对不起") != -1 or replay.find("无法回答") != -1 or replay.find(
             "不知道") != -1 or replay.find("不清楚") != -1 or replay.find("不太明白") != -1 or replay.find("抱歉") != -1:
-        replay = "抱歉，小邮从目前的知识体系中，并没有找准确答案。但是我从互联网上找到如下答案："
-        ai_replay = answer_bybase(question)
+        replay = "抱歉，小邮从目前的知识体系中，并没有找到准确答案。从网上找到如下信息："
+        ai_replay = answer_bybase(question+"，回答请不要超过"+str(random.randint(100, 200))+"字")
         replay = str(replay) + str(ai_replay)
 
 
