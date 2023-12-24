@@ -32,8 +32,8 @@ def get_vector_chain(collection_name) -> Any:
     {history}
     </hs>
     ------
-   
-    
+    如果上下文中没有，请不要随便回答
+    If you don't know, please answer '抱歉，从目前我的知识体系中并没有找到准确的答案'
     Answer in Chinese，The answer cannot exceed 200:
     """
 
