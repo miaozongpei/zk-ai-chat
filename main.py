@@ -12,10 +12,15 @@ async def ask(question: str):
 
 @app.get("/ask_doc/{docs}/{question}")
 async def ask(docs: str, question: str):
+    if q_black_list(question):
+        return {"message": "抱歉，小邮，没办法回复你这个问题"}
+
+
     replay = answer_bydoc(docs, question)
     if replay.find("don't") != -1 or replay.find("对不起") != -1 or replay.find("无法回答") != -1 or replay.find(
             "不知道") != -1 or replay.find("不清楚") != -1 or replay.find("不太明白") != -1 or replay.find("抱歉") != -1:
-        replay = "抱歉，小邮从目前的知识体系中，并没有找到准确答案。从网上找到如下信息："
+        replay = "抱歉，小邮从目前的知识体系中，并没有找到准确答案"
+        replay = str(replay)+"。从网上找到如下信息："
         ai_replay = answer_bybase(question+"，回答请不要超过"+str(random.randint(100, 200))+"字")
         replay = str(replay) + str(ai_replay)
 
@@ -27,7 +32,21 @@ async def ask(docs: str, question: str):
                 replay = "抱歉，小邮，没办法回复你这个问题"
                 break  # 匹配到关键字就退出循环
     return {"message": replay}
+def q_black_list(question):
+    with open("answer/question_black_list.txt", "r", encoding='utf-8') as f:
+        keywords = f.read().split(",")
+        for keyword in keywords:
+            if keyword and (keyword in question):
+                return True
+    return False
 
+def ai_black_list(question):
+    with open("answer/ai_black_list.txt", "r", encoding='utf-8') as f:
+        keywords = f.read().split(",")
+        for keyword in keywords:
+            if keyword and (keyword in question):
+                return True
+    return False
 @app.get("/ask/{docs}/{question}")
 async def ask(docs: str, question: str):
     replay = answer_bydoc(docs, question)

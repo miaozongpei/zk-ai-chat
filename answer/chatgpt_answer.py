@@ -1,6 +1,4 @@
 from langchain.vectorstores import Milvus
-from langchain.chat_models import ChatOpenAI
-from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chains.retrieval_qa.base import RetrievalQA
 from typing import Any
 from langchain.memory import ConversationBufferMemory
@@ -33,7 +31,6 @@ def get_vector_chain(collection_name) -> Any:
     {history}
     </hs>
     ------
-    
     Answer in Chinese，The answer cannot exceed 200:
     """
 

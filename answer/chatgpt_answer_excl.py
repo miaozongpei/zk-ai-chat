@@ -51,8 +51,13 @@ def xr_fromExcel(excel_file,sheet_no):
             continue
         t1 = time.time()
         url = "http://8.130.178.88:5555/ask_doc/my_doc1/"+str(cell.value)
+
         response = requests.get(url)
-        replay = response.json()['message']
+        data = response.json()
+        if 'message' in data:
+            replay = data['message']
+        else:
+            replay = "No message key found"
         t2 = time.time()
         one_line['序号'] = row
         one_line['问题'] = cell.value
@@ -67,6 +72,6 @@ def xr_fromExcel(excel_file,sheet_no):
 
 #main
 if '__main__' == __name__:
-     xr_fromExcel(u'/Users/miao/mydocs/个人/公司/邮乐/问题测试/1214挑战问题.xlsx', 0)
-     #xr_fromExcel(u'/Users/miao/mydocs/个人/公司/邮乐/问题测试/test.xlsx',0)
+     #xr_fromExcel(u'/Users/miao/mydocs/个人/公司/邮乐/问题测试/1214挑战问题.xlsx', 0)
+     xr_fromExcel(u'/Users/miao/mydocs/个人/公司/邮乐/问题测试/test.xlsx',0)
 
