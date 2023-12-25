@@ -9,7 +9,7 @@ Milvus_host = '8.130.178.88'
 Milvus_port = '19530'
 
 text_splitter_chunk_size = 768
-text_splitter_chunk_overlap = 64
+text_splitter_chunk_overlap = 32
 
 
 embedding_xh_appid = '25db5e9b'
@@ -18,6 +18,6 @@ embedding_xh_api_secret = 'NzFmMGZmY2E1ZjY1MTE4Nzk0MDk2MzBi'
 embedding_xh_embedding_url = 'https://knowledge-retrieval.cn-huabei-1.xf-yun.com/v1/aiui/embedding/query'
 
 
-llm_xh_appid = "7ada6f65"
-llm_xh_api_key = "4f07c6e4fa5b36a98e6937ae094d4453"
-llm_xh_api_secret = "OTE3NGYzNTU0MmNmNDdjYmEyOWZhMmYw"
+llm_xh_appid = "4f3d3915"
+llm_xh_api_key = "b20e7dbae02117308562ae7257838d76"
+llm_xh_api_secret = "NzAzNTRlMjIyMzU3YzgxZDI5MGY5OGQ1"

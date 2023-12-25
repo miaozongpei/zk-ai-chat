@@ -38,6 +38,6 @@ def import_file_path(file_path, collection_name):
 #import_file_url("/Users/miao/mydocs/个人/公司/6年级数学知识点/2.jpg","suxue6")
 #import_file_path("/Users/miao/mydocs/个人/公司/育儿", "yuer3")
 
-import_file_path("/Users/miao/mydocs/个人/公司/邮乐1","my_doc1")
+import_file_path("/Users/miao/mydocs/个人/公司/邮乐2","my_doc1")
 
-#import_file_url("/Users/miao/mydocs/个人/公司/邮乐1/微调问题.doc","my_doc1")
+#import_file_url("/Users/miao/mydocs/个人/公司/邮乐2/微调.doc","my_doc2")
