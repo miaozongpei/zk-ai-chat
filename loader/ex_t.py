@@ -47,7 +47,7 @@ def excel2json(excel_file, json_file_name,sheet_no):
 
 #main
 if '__main__' == __name__:
-    excel2json(u'/Users/miao/mydocs/个人/公司/邮乐/邮乐AI数字人知识库收集 (第2批次)(1226) 的副本.xlsx', '/Users/miao/mydocs/个人/公司/邮乐2/1.txt',1)
-    #excel2json(u'/Users/miao/mydocs/个人/公司/邮乐/张东旭.xlsx', '/Users/miao/mydocs/个人/公司/邮乐1/张东旭.doc',0)
+    #excel2json(u'/Users/miao/mydocs/个人/公司/邮乐/1226补充信息.xlsx', '/Users/miao/mydocs/个人/公司/邮乐2/1226补充信息.xlsx.txt',0)
+    excel2json(u'/Users/miao/mydocs/个人/公司/邮乐/张东旭.xlsx', '/Users/miao/mydocs/个人/公司/邮乐3/张东旭.txt',0)
 
 #excel2json(u'/Users/miao/mydocs/个人/公司/邮乐/资料库补充资料.xlsx', '/Users/miao/mydocs/个人/公司/邮乐1/3.doc',3)

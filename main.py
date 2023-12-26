@@ -19,10 +19,8 @@ async def ask(docs: str, question: str):
     replay = answer_bydoc(docs, question)
     if replay.find("don't") != -1 or replay.find("对不起") != -1 or replay.find("无法回答") != -1 or replay.find(
             "不知道") != -1 or replay.find("不清楚") != -1 or replay.find("不太明白") != -1 or replay.find("抱歉") != -1:
-        replay = "抱歉，小邮从目前的知识体系中，并没有找到准确答案"
-        replay = str(replay)+"。从网上找到如下信息："
         ai_replay = answer_bybase(question+"，回答请不要超过"+str(random.randint(100, 200))+"字")
-        replay = str(replay) + str(ai_replay)
+        replay = str(ai_replay)
 
 
     with open("./answer/black_list.txt", "r", encoding='utf-8') as f:
