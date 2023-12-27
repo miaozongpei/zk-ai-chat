@@ -3,6 +3,8 @@ from langchain.chains.retrieval_qa.base import RetrievalQA
 from typing import Any
 from langchain.memory import ConversationBufferMemory
 from langchain import PromptTemplate, FAISS
+from langchain.schema import Document
+
 
 from embedding.xinghuo_embedding import XhEmbeddings
 from llm.spark_llm import Spark
@@ -67,6 +69,30 @@ def answer_bybase(question):
     result = llm(question)
     return result
 
+def query_doc(collection_name, question):
+    vector_db = Milvus(
+        embedding_function=embeddings,
+        connection_args={"host": config.Milvus_host, "port": config.Milvus_port},
+        collection_name=collection_name,
+    )
+    retriever = vector_db.as_retriever(search_type="similarity", search_kwargs={"k": 3})
+    docs = retriever.get_relevant_documents(question)
+    return docs
+
+def add_doc(collection_name, question,content):
+    vector_db = Milvus(
+        embedding_function=embeddings,
+        connection_args={"host": config.Milvus_host, "port": config.Milvus_port},
+        collection_name=collection_name,
+    )
+    doc = Document(page_content=question+" "+content,
+                   metadata={"source": question})
+    docs=[]
+    docs.append(doc)
+    vector_db.add_documents(docs)
+
+
+add_doc("my_doc1","这层的卫生间在哪里?","10层、11层的厕所都在楼梯口旁边，出大门右转就能到哦")
 #eplay=answer("my_doc1","你们周六上班吗" )
 #replay=answer("my_doc1","我周六可以去吗" )
 #print(replay)
