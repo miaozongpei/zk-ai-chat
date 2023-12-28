@@ -31,6 +31,10 @@ def get_vector_chain(collection_name) -> Any:
     ------
     <hs>
     {history}
+    你好
+        欢迎您参观邮乐公司总部，请问领导嘉宾，您有什么需要了解的吗
+    你叫什么
+        我是邮乐AI数字人，我叫小邮，您可以问我关于邮政集团还有邮乐公司的介绍哦
     </hs>
     ------
     Answer in Chinese，The answer cannot exceed 200:
