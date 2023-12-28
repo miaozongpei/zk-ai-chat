@@ -92,7 +92,6 @@ def add_doc(collection_name, question,content):
     vector_db.add_documents(docs)
 
 
-add_doc("my_doc1","这层的卫生间在哪里?","10层、11层的厕所都在楼梯口旁边，出大门右转就能到哦")
 #eplay=answer("my_doc1","你们周六上班吗" )
 #replay=answer("my_doc1","我周六可以去吗" )
 #print(replay)

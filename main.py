@@ -34,7 +34,7 @@ async def ask(docs: str, question: str):
         keywords = f.read().split(",")
         for keyword in keywords:
             if keyword and (keyword in replay):
-                replay = "抱歉，小邮，没办法回复你这个问题"
+                replay = "抱歉，小邮暂时无法问答这个问题"
                 break  # 匹配到关键字就退出循环
     return {"message": replay}
 def q_black_list(question):
