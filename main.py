@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import uvicorn
 from fastapi import FastAPI
 from answer.chatgpt_answer import answer_bydoc,answer_bybase,query_doc
