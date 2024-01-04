@@ -16,7 +16,7 @@ from langchain.cache import RedisCache
 from redis import Redis
 
 # redis 缓存
-langchain.llm_cache = RedisCache(Redis(host="8.130.178.88", port=6379, db=8))
+langchain.llm_cache = RedisCache(Redis(host=config.llm_cache_redis_host, port=config.llm_cache_redis_port, db=config.llm_cache_redis_db))
 #embeddings = OpenAIEmbeddings(openai_api_key=config.OPENAI_API_KEY)
 #llm = ChatOpenAI(openai_api_key=config.OPENAI_API_KEY, temperature=0, model_name="gpt-3.5-turbo-16k")
 

@@ -11,6 +11,11 @@ Milvus_port = '19530'
 Milvus_user = 'root'
 Milvus_password = 'Milvus@zksz123RFCS'
 
+llm_cache_redis_host = "8.130.178.88"
+llm_cache_redis_port = "6379"
+llm_cache_redis_db = "8"
+
+
 text_splitter_chunk_size = 512
 text_splitter_chunk_overlap = 32
 
