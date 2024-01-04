@@ -8,7 +8,7 @@ import answer.chatgpt_answer
 app = FastAPI()
 
 # 配置日志记录
-logging.basicConfig(filename='app.log',  # 指定日志文件的名称
+logging.basicConfig(filename='./app.log',  # 指定日志文件的名称
                     level=logging.INFO,  # 设置日志级别为 DEBUG，这会记录所有的日志信息
                     format='%(asctime)s - %(levelname)s - %(message)s',  # 设置日志格式
                     datefmt='%Y-%m-%d %H:%M:%S')  # 设置日期时间格式

@@ -5,10 +5,13 @@ OPENAI_API_KEY = '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'
 
 PINECONE_API_KEY = '796663de-957a-4238-947e-50dc1ccb52ec'
 PINECONE_API_ENV = 'us-west4-gcp-free'
-Milvus_host = '8.130.178.88'
-Milvus_port = '19530'
 
-text_splitter_chunk_size = 768
+Milvus_host = '101.132.157.104'
+Milvus_port = '19530'
+Milvus_user = 'root'
+Milvus_password = 'Milvus@zksz123RFCS'
+
+text_splitter_chunk_size = 512
 text_splitter_chunk_overlap = 32
 
 
@@ -21,3 +24,6 @@ embedding_xh_embedding_url = 'https://knowledge-retrieval.cn-huabei-1.xf-yun.com
 llm_xh_appid = "4f3d3915"
 llm_xh_api_key = "b20e7dbae02117308562ae7257838d76"
 llm_xh_api_secret = "NzAzNTRlMjIyMzU3YzgxZDI5MGY5OGQ1"
+
+
+llm_tyqw_api_key = "sk-97d523aa76184c338c80b32954643e40"
