@@ -13,11 +13,11 @@ def xw_toExcel(data, fileName):  # xlsxwriter库储存数据到excel
     workbook = xw.Workbook(fileName)  # 创建工作簿
     worksheet1 = workbook.add_worksheet("sheet1")  # 创建子表
     worksheet1.activate()  # 激活表
-    title = ['序号', '问题', '答案', '回答', '耗时']  # 设置表头
+    title = ['序号', '问题', '答案', '回答旧', '耗时旧', '回答新', '耗时新']  # 设置表头
     worksheet1.write_row('A1', title)  # 从A1单元格开始写入表头
     i = 2  # 从第二行开始写入数据
     for j in range(len(data)):
-        insertData = [data[j]["序号"], data[j]["问题"], data[j]["答案"], data[j]["回答"], data[j]["耗时"]]
+        insertData = [data[j]["序号"], data[j]["问题"], data[j]["答案"], data[j]["回答旧"], data[j]["耗时旧"], data[j]["回答新"], data[j]["耗时新"]]
         row = 'A' + str(i)
         worksheet1.write_row(row, insertData)
         i += 1
@@ -51,7 +51,7 @@ def xr_fromExcel(excel_file,sheet_no):
         if cell1.value == None:
             continue
         t1 = time.time()
-        url = "http://8.130.178.88:5555/ask_doc/my_doc3/"+str(cell1.value)
+        url = "http://8.130.178.88:6666/ask_doc/my_doc1/"+str(cell1.value)
 
         response = requests.get(url)
         data = response.json()
@@ -63,8 +63,21 @@ def xr_fromExcel(excel_file,sheet_no):
         one_line['序号'] = row
         one_line['问题'] = cell1.value
         one_line['答案'] = str(cell2.value)
-        one_line['回答'] = replay
-        one_line['耗时'] = t2-t1
+        one_line['回答旧'] = replay
+        one_line['耗时旧'] = t2-t1
+
+        t1 = time.time()
+        url = "http://ai.zkszr.com/ask_doc/youle1/" + str(cell1.value)
+        response = requests.get(url)
+        data = response.json()
+        if 'message' in data:
+            replay_new = data['message']
+        else:
+            replay_new = "No message key found"
+        t2 = time.time()
+        one_line['回答新'] = replay_new
+        one_line['耗时新'] = t2-t1
+
         print(one_line)
         result.append(one_line)
     new_file_url = str.replace(excel_file, ".xlsx", '_result.xlsx')
@@ -74,6 +87,6 @@ def xr_fromExcel(excel_file,sheet_no):
 
 #main
 if '__main__' == __name__:
-     xr_fromExcel(u'/Users/miao/mydocs/个人/公司/邮乐/问题测试/0103_test.xlsx', 0)
+     xr_fromExcel(u'/Users/miao/mydocs/个人/公司/邮乐/问题测试/跑批0108.xlsx', 0)
      #xr_fromExcel(u'./1228.xlsx',0)
 

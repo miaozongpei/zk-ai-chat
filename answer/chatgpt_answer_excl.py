@@ -72,6 +72,6 @@ def xr_fromExcel(excel_file,sheet_no):
 
 #main
 if '__main__' == __name__:
-     xr_fromExcel(u'/Users/miao/mydocs/个人/公司/邮乐/问题测试/1228.xlsx', 0)
+     xr_fromExcel(u'/Users/miao/mydocs/个人/公司/邮乐/问题测试/批量跑答案0103(2).xlsx', 0)
      #xr_fromExcel(u'./1228.xlsx',0)
 
