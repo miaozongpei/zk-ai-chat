@@ -21,10 +21,10 @@ langchain.llm_cache = RedisCache(Redis(host=config.llm_cache_redis_host, port=co
 #llm = ChatOpenAI(openai_api_key=config.OPENAI_API_KEY, temperature=0, model_name="gpt-3.5-turbo-16k")
 
 #embeddings =XhEmbeddings(appid=config.embedding_xh_appid,
-#                       api_key=config.embedding_xh_api_key,
-#                      api_secret=config.embedding_xh_api_secret,
-#                       embedding_url=config.embedding_xh_embedding_url
-#                       )
+#                     api_key=config.embedding_xh_api_key,
+#                     api_secret=config.embedding_xh_api_secret,
+#                      embedding_url=config.embedding_xh_embedding_url
+#                      )
 embeddings = DashScopeEmbeddings(model="text-embedding-v1", dashscope_api_key=config.llm_tyqw_api_key)
 #llm = Dashscope()
 llm = Spark(version=3)
@@ -78,6 +78,11 @@ def answer_bybase(question):
     result = llm(question)
     return result
 
+def question_derive(question):
+    prompt = "<question>"+question+"</question>,Please generate 5 different short questions for <question>"
+    llm = Dashscope()
+    result = llm(prompt)
+    return result
 def query_doc(collection_name, question):
     vector_db = Milvus(
         embedding_function=embeddings,
@@ -89,19 +94,22 @@ def query_doc(collection_name, question):
     docs = retriever.get_relevant_documents(question)
     return docs
 
-def add_doc(collection_name, question,content):
+def add_doc(collection_name,question,content):
+    source = question
+    base_add_doc(collection_name,source,content)
+
+def base_add_doc(collection_name,source, content):
     vector_db = Milvus(
         embedding_function=embeddings,
         connection_args={"host": config.Milvus_host, "port": config.Milvus_port, "user": config.Milvus_user,
                          "password": config.Milvus_password},
         collection_name=collection_name,
     )
-    doc = Document(page_content=question+" "+content,
-                   metadata={"source": question})
+    doc = Document(page_content=content,
+                   metadata={"source": source})
     docs=[]
     docs.append(doc)
     vector_db.add_documents(docs)
-
 
 #eplay=answer("my_doc1","你们周六上班吗" )
 #replay=answer("my_doc1","我周六可以去吗" )
