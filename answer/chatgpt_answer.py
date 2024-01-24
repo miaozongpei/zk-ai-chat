@@ -40,7 +40,6 @@ def get_vector_chain(collection_name) -> Any:
     ------
     <hs>
     {history}
-    我叫小邮，是中国邮政的员工，也是邮乐网的交互数字人
     </hs>
     ------
     Question: {question}
