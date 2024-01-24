@@ -26,7 +26,12 @@ def import_file_url(file_url, collection_name):
         docs = text_splitter.split_documents(docs)
         for i in range(0, len(docs), 10):
             batch_docs = docs[i:i + 10]
-            vector_db.collection_name = collection_name
+            vector_db = Milvus.from_documents(
+                batch_docs,
+                embeddings,
+                connection_args={"host": config.Milvus_host, "port": config.Milvus_port},
+                collection_name=collection_name,
+            )
             time.sleep(20)  # 休眠20秒
 
 def import_file_path(file_path, collection_name):
@@ -40,6 +45,6 @@ def import_file_path(file_path, collection_name):
 #import_file_url("/Users/miao/mydocs/个人/公司/6年级数学知识点/2.jpg","suxue6")
 #import_file_path("/Users/miao/mydocs/个人/公司/育儿", "yuer3")
 
-import_file_path("/Users/miao/mydocs/个人/公司/邮乐3","my_doc4")
+import_file_path("/Users/miao/mydocs/个人/公司/大力牛魔王新能源汽车1","dali")
 
 #import_file_url("/Users/miao/mydocs/个人/公司/邮乐2/微调.doc","my_doc2")

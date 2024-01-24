@@ -6,7 +6,7 @@ OPENAI_API_KEY = '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'
 PINECONE_API_KEY = '796663de-957a-4238-947e-50dc1ccb52ec'
 PINECONE_API_ENV = 'us-west4-gcp-free'
 
-Milvus_host = '101.132.157.104'
+Milvus_host = '8.130.178.88'
 Milvus_port = '19530'
 Milvus_user = 'root'
 Milvus_password = 'Milvus@zksz123RFCS'
